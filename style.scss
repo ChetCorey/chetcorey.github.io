@@ -1,204 +1,129 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-.image-gradient-dynamic {
-  $image-gradient-color-top: red;
-  $transparency-top: 0.9;
-  $image-gradient-color-bottom: green;
-  $transparency-bottom: 0.6;
-  $vertical-angle: 0deg;
-  $image-gradient-color-left: teal;
-  $transparency-left: 0.8;
-  $image-gradient-color-right: yellow;
-  $transparency-right: 0.8;
-  $horizontal-angle: 90deg;
+$primary-color: blue;
+$secondary-color: gray;
 
-  line-height: 0;
-  position: relative;
-  width: 100%;
-
-  img {
-   height: auto;
-   left: 0;
-   position: relative;
-   top: 0;
-   width: 100%;
-  }
-
-  .copy {
-    @include transform(translate(-50%, -50%));
-    left: 50%;
-    margin: auto;
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    z-index: 999;
-
-    p {
-      color: white;
-      font-weight: 800;
-      line-height: 1.5em;
-      padding: 1em 2em;
-      position: relative;
-    }
-  }
-
-  .overlay {
-    @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top),
-      transparentize($image-gradient-color-bottom, $transparency-bottom));
-    display: block;
-    @include position(absolute, 0px 0px 0px 0px);
-
-    &:after {
-      @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left),
-        transparentize($image-gradient-color-right, $transparency-right));
-      @include position(absolute, 0px 0px 0px 0px);
-      content: '';
-      display: block;
-    }
-  }
+body {
+  padding: 20px;
 }
 
+html {
+  height: 5000px;
+  background: #DCD7D4;
+}
+// Navbar
+$bourbon-nav-background-color: #ccc;
+$nav-height: 50px;
+$shadow-height: 3px;
+$background-image: "http://chromecastbg.alexmeub.com/images/1080_Sailing-Stones.jpg";
 
-// .wrapper-for-content-outside-of-footer {
-//   min-height: 100%;
-//   height: auto !important;
-//   height: 100%;
-//   margin: 0 auto -4em;
-// }
-//
-// html, body {
-//  height: 100%;
-// }
-//
-// .wrapper-for-content-outside-of-footer:after {
-//   content: "";
-//   display: block;
-// }
-//
-// .footer-2, .wrapper-for-content-outside-of-footer:after {
-//   height: 17em;
-//
-//   @include media($large-screen) {
-//     height: 4em;
-//   }
-// }
-
-.footer-2 {
-  ///////////////////////////////////////////////////////////////////////////////////
-  $base-spacing: 1.5em !default;
-  $base-accent-color: #477DCA !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(860) !default;
+.nav {
+  opacity: .4;
+  position: fixed;
+  height: $nav-height + $shadow-height;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  -moz-box-shadow: 2px 2px 2px #000;
+  -webkit-box-shadow: 2px 2px 2px #000;
+  box-shadow: 2px 2px 2px #000;
+  padding: 5px;
 
   ul {
-    margin: 0;
+    height: $nav-height $shadow-height;
+    text-align: center;
+    float: center;
     padding: 0;
-    line-height: 1.5em;
+    margin: 0;
+
   }
 
   li {
-    list-style: none;
+    background: #544;
+    display: inline-block;
+    padding: 2px;
+    height: 100%;
+    -moz-box-shadow: 2px 2px 2px #000;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+
   }
 
   a {
-    text-decoration: none;
-  }
-  //////////////////////////////////////////////////////////////////////////////////
+    color: #000;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1em;
 
-  $footer-background: desaturate(darken($base-accent-color, 20%), 30%);
-  $footer-color: white;
-  $footer-link-color: transparentize($footer-color, 0.6);
-  $footer-disclaimer-color: transparentize($footer-color, 0.6);
-
-  background: $footer-background;
-  padding: $base-spacing;
-  width: 100%;
-  display: inline-block;
-
-  .footer-logo {
-    margin-right: 1em;
-    margin-bottom: 1em;
-
-    @include media($large-screen) {
-      float: left;
-      margin-bottom: 0;
-    }
-  }
-
-  .footer-logo img {
-    height: 1.6em;
-  }
-
-  ul {
-    margin-bottom: 1em;
-
-    @include media($large-screen) {
-      float: left;
-      line-height: 1.8em;
-      margin-left: 1em;
-      margin-bottom: 0;
-    }
-  }
-
-  ul li {
-    font-weight: 800;
-    padding-right: 1em;
-
-    @include media($large-screen) {
-      display: inline;
-      text-align: left;
-    }
-  }
-
-  ul li a {
-    color: $footer-link-color;
-
-    &:focus,
     &:hover {
-      color: transparentize($footer-color, 0);
-    }
-  }
-
-  .footer-secondary-links {
-    @include media($large-screen) {
-      float: right;
-    }
-
-    li {
-      font-size: 0.8em;
-      font-weight: 400;
-    }
-
-    ul.footer-social {
-      margin-top: 1em;
-
-      @include media($large-screen) {
-        float: right;
-        margin-top: 0;
-      }
-
-      li {
-        font-size: 1em;
-        float: left;
-        line-height: 0;
-        padding-right: 0.7em;
-
-        &:last-child {
-          padding-right: 0;
-        }
-      }
-
-      img {
-        height: 1.6em;
-        opacity: 0.7;
-        padding: 1px;
-
-        &:focus,
-        &:hover {
-          opacity: 1;
-        }
-      }
+      background-color: darken($bourbon-nav-background-color, 10);
+      color: #fff;
     }
   }
 }
+
+.nav::after {
+  box-shadow: (red 2px 2px 500px);
+  position: fixed;
+  top: $nav-height;
+  left: 0;
+  height: $nav-height/50;
+
+
+}
+// END Navbar
+
+// Hero Image
+$parallax-window-height: 100vh;
+$parallax-content-height: $parallax-window-height / 2;
+$parallax-background-height: $parallax-window-height * 2;
+$face: "images/chetcorey.png";
+
+.parallax-window {
+  height: $parallax-window-height;
+  margin: 20px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.parallax-static-content {
+  top: $parallax-content-height;
+  position: relative;
+  z-index: 9;
+  height: $parallax-window-height / 3;
+
+  .face {
+    background-image: url($face) no-repeat;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 180px; /* Width of new image */
+    height: 236px; /* Height of new image */
+    padding-left: 180px; /* Equal to width of new image */
+
+
+  }
+
+  h1 {
+    color: white;
+    font-size: $parallax-window-height / 10;
+  }
+}
+
+.parallax-background {
+  /* Set rules to fill background */
+  min-height: 100%;
+  background-image: url($background-image);
+  background-position: top;
+  background-size: 100%;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+// END Hero Image
