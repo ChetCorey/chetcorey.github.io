@@ -9,10 +9,10 @@ html {
   box-sizing: inherit; }
 
 body {
-  padding: 20px; }
+  padding: 20px;
+  height: 100%; }
 
 html {
-  height: 5000px;
   background: #DCD7D4; }
 
 .nav {
@@ -59,31 +59,10 @@ html {
 
 .parallax-window {
   height: 100vh;
-  margin: 20px;
   overflow: hidden;
   position: relative;
   text-align: center;
   width: 100%; }
-
-.parallax-static-content {
-  top: 50vh;
-  position: relative;
-  z-index: 9;
-  height: 33.33333vh; }
-  .parallax-static-content .face {
-    background-image: url("images/chetcorey.png") no-repeat;
-    display: block;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 180px;
-    /* Width of new image */
-    height: 236px;
-    /* Height of new image */
-    padding-left: 180px;
-    /* Equal to width of new image */ }
-  .parallax-static-content h1 {
-    color: white;
-    font-size: 10vh; }
 
 .parallax-background {
   /* Set rules to fill background */
@@ -96,5 +75,33 @@ html {
   position: absolute;
   top: -33.33333vh;
   width: 100%; }
+
+.content-full {
+  position: relative;
+  margin: 20px 0;
+  height: 400px;
+  width: 100%;
+  border: double 5px; }
+  .content-full .one-third {
+    position: relative;
+    margin: 0 0 0 2%;
+    padding: 15px;
+    height: 100%;
+    width: 32%;
+    border: green solid 2px; }
+  .content-full .two-third {
+    position: relative;
+    margin: 0 1% 0 0;
+    padding: 15px;
+    height: 100%;
+    width: 62%;
+    border: green solid 2px; }
+
+.footer {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  border: double 5px;
+  margin: 20px 0; }
 
 /*# sourceMappingURL=style.css.map */

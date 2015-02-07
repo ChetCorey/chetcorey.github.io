@@ -3,13 +3,13 @@
 
 $primary-color: blue;
 $secondary-color: gray;
-
 body {
   padding: 20px;
+  height: 100%;
 }
 
+
 html {
-  height: 5000px;
   background: #DCD7D4;
 }
 // Navbar
@@ -82,36 +82,11 @@ $parallax-background-height: $parallax-window-height * 2;
 $face: "images/chetcorey.png";
 
 .parallax-window {
-  height: $parallax-window-height;
-  margin: 20px;
+  height: 100vh;
   overflow: hidden;
   position: relative;
   text-align: center;
   width: 100%;
-}
-
-.parallax-static-content {
-  top: $parallax-content-height;
-  position: relative;
-  z-index: 9;
-  height: $parallax-window-height / 3;
-
-  .face {
-    background-image: url($face) no-repeat;
-    display: block;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 180px; /* Width of new image */
-    height: 236px; /* Height of new image */
-    padding-left: 180px; /* Equal to width of new image */
-
-
-  }
-
-  h1 {
-    color: white;
-    font-size: $parallax-window-height / 10;
-  }
 }
 
 .parallax-background {
@@ -127,3 +102,42 @@ $face: "images/chetcorey.png";
   width: 100%;
 }
 // END Hero Image
+
+
+// Full Content Block
+.content-full {
+  position: relative;
+  margin: 20px 0;
+  height: 400px;
+  width: 100%;
+  border: double 5px;
+
+  .one-third {
+    position: relative;
+    margin: 0 0 0 2%;
+    padding: 15px;
+    height: 100%;
+    width: 32%;
+    border: green solid 2px;
+  }
+
+  .two-third {
+    position: relative;
+    margin: 0 1% 0 0;
+    padding: 15px;
+    height: 100%;
+    width: 62%;
+    border: green solid 2px;
+  }
+}
+// END Full Content Block
+
+// Footer
+.footer {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  border: double 5px;
+  margin: 20px 0;
+}
+// END Footer
