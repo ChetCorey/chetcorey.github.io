@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -10,19 +11,18 @@ html {
 
 body {
   overflow: auto;
-  height: 100%; }
+  height: 100%;
+  font-family: 'Source Sans Pro', sans-serif; }
 
 .background {
-  background-image: url("images/birch-tree-forest-tall.jpg");
+  background-image: url("images/bamboo.jpeg");
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 100% auto;
+  background-size: auto 100%;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  height: 3500px;
+  width: calc(300px + 100vw);
   top: 0;
-  left: 0;
-  overflow: auto; }
+  left: -300px; }
 
 .nav {
   width: 100%;
@@ -73,7 +73,8 @@ body {
   position: absolute;
   text-align: center;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.6); }
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 24px; }
   .header .face {
     top: 15vh;
     left: 0;
@@ -85,25 +86,95 @@ body {
     z-index: 10;
     width: 200px;
     height: 200px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    border-radius: 50%; }
   .header h1 {
     color: black;
-    background: wheat;
+    background: gray;
     position: absolute;
-    width: 100%;
+    text-align: center;
     top: calc(15vh + 200px);
-    font-size: 400%; }
+    font-weight: lighter;
+    margin: 32px 38% 12px;
+    left: 0;
+    right: 0;
+    border-radius: 24px; }
 
 .content-full {
-  width: 100%;
-  border: orange solid 5px;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
   position: relative;
   top: 100vh;
-  text-align: center; }
-  .content-full .gdi {
-    height: 600px; }
-  .content-full .footer {
-    height: 200px;
-    margin: 20px 0; }
+  text-align: center;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  border-radius: 24px; }
+  .content-full::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .content-full h1 {
+    border-radius: 24px;
+    font-size: 4em;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    line-height: 1em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1em;
+    background-color: rgba(255, 255, 255, 0.4); }
+
+.hover-tile-outer {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png");
+  background-position: bottom;
+  background-size: cover;
+  background-color: beige;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+  height: calc(100% - 2em);
+  margin-bottom: 1em;
+  width: 1em; }
+  .hover-tile-outer h4 {
+    margin: 0; }
+  .hover-tile-outer p {
+    line-height: 1em; }
+  @media screen and (min-width: 40em) {
+    .hover-tile-outer {
+      width: 40%; } }
+  .hover-tile-outer .hover-tile-container {
+    height: calc(100% - 2em);
+    overflow: hidden; }
+  .hover-tile-outer .hover-tile-container:hover > .hover-tile {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1; }
+  .hover-tile-outer .hover-tile {
+    -webkit-transition: all, 0.8s ease-in-out;
+    -moz-transition: all, 0.8s ease-in-out;
+    transition: all, 0.8s ease-in-out;
+    color: black;
+    font-size: 2em;
+    height: 100px;
+    width: 40%;
+    overflow: hidden;
+    padding: .6em;
+    position: absolute;
+    text-align: top;
+    bottom: 0;
+    opacity: 0; }
+  .hover-tile-outer .hover-tile-hidden {
+    background: rgba(0, 0, 0, 0.7); }
+    .hover-tile-outer .hover-tile-hidden p {
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1000px; }
+    .hover-tile-outer .hover-tile-hidden h1 {
+      margin-top: -20px; }
 
 /*# sourceMappingURL=style.css.map */
