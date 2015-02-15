@@ -1,49 +1,73 @@
-// // Navbar
-// $(document).ready(function() {
-//   var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
-//   $('#js-centered-navigation-menu').removeClass("show");
+// $('.project').click(function() {
 //
-//   menuToggle.on('click', function(e) {
-//     e.preventDefault();
-//     $('#js-centered-navigation-menu').slideToggle(function(){
-//       if($('#js-centered-navigation-menu').is(':hidden')) {
-//         $('#js-centered-navigation-menu').removeAttr('style');
-//       }
-//     });
-//   });
+//     $(this).animate({ opacity: 1, border: 0, opacity: 1,
+//  visibility: "hidden"}, 1000);
+//     // $(this).animate({ "height" : "50px"}, 1000);
+//     // $(this).animate({ "top" : "200px"}, 1000);
+//     // $(this).animate({ "left" : "0px"}, 1000);
+//     // $(this).animate({ "top" : "0px"}, 1000);
+//     // $(this).animate({ "width" : "300px", "height" : "300px"}, 1000);
+//
 // });
 
-// END Navbar
 
-// Parallax
-// $(document).ready(function() {
-//   if ($("#js-parallax-window").length) {
-//     parallax();
-//   }
-// });
+////////////////////////////////////////////////////////////////////////////////
 //
-// $(window).scroll(function(e) {
-//   if ($("#js-parallax-window").length) {
-//     parallax();
-//   }
-// });
+function projects(current, next) {
+  if ( $('.project.' + current).width() == 686 ){
+    $( '.project.' + current ).animate({
+        opacity: 0, left: "85%", width: 0}, {
+          queue: false,
+          duration: 1500,
+          });
+    $( '.project.' + next ).animate({
+        opacity: 1, left: 0, width: "85%"}, {
+          queue: false,
+          duration: 1500,});
+  }
+};
+
+  // if ($('.project').width() > 0 ){
+  //   var pro = $('.project').filter();
+  //   alert(pro.text());
+  // }
+
+////////////////////////////////////////////////////////////////////////////////
+// function myFunction() {
+//   // var width = document.getElementById('.project.first').width;
+//   var projectFirst = $('.project.first')
+//   $('.debugger').html((projectFirst.width()));
 //
-// function parallax(){
-//   if( $("#js-parallax-window").length > 0 ) {
-//     var plxBackground = $("#js-parallax-background");
-//     var plxWindow = $("#js-parallax-window");
-//
-//     var plxWindowTopToPageTop = $(plxWindow).offset().top;
-//     var windowTopToPageTop = $(window).scrollTop();
-//     var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
-//
-//     var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
-//     var windowInnerHeight = window.innerHeight;
-//     var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
-//     var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-//     var plxSpeed = .7;
-//
-//     plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
-//   }
 // }
-// END Parallax
+
+var proja = ['first', 'second', 'third', 'fourth'];
+var count = 0;
+$( '.left' ).click(function() {
+  projects(proja[count], proja[count + 1]);
+  setTimeout(function(){
+    count += 1;
+}, 1600);
+
+  // projects('second', 'third');
+  // projects('third', 'fourth');
+  // projects('fourth', 'first');
+});
+////////////////////////////////////////////////////////////////////////////////
+// var window = function projectFinder(current, next) {
+//   if ( $('.project.' + current).width() == 686 ){
+//     $( '.project.' + current).animate({opacity: 0, left: "85%", width: 0}, {
+//         queue: false,
+//         duration: 1500,})
+//     $( '.project.' + next ).animate({
+//       opacity: 1, width: "85%"}, {
+//         queue: false,
+//         duration: 1500,})
+//
+//     $( '.project.' + current).animate({left: 0}, {
+//         queue: false,
+//         duration: 1,})
+//     }
+// }
+//
+// window('' + 'first', 'second')
+////////////////////////////////////////////////////////////////////////////////

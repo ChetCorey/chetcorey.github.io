@@ -109,18 +109,54 @@ header {
   z-index: 3;
   border: solid green 2px;
   border-radius: 24px; }
-  .content-full h1 {
-    position: relative;
-    left: 0;
-    width: 100%;
-    text-align: center; }
-  .content-full .projects {
-    position: relative;
-    float: left;
-    border: solid green 2px;
-    height: 40%;
-    width: 48%;
+  .content-full header {
+    position: relative; }
+    .content-full header h1 {
+      position: relative;
+      left: 0;
+      width: 100%;
+      text-align: center; }
+  .content-full .arrow {
+    height: 100%;
+    width: 40px;
+    top: 0;
+    position: absolute;
     background-color: rgba(240, 240, 240, 0.6);
-    margin: 10px 0 0 10px; }
+    border-radius: 20px;
+    border: solid green 2px;
+    margin: 10px; }
+    .content-full .arrow.left {
+      left: 0;
+      background-color: red; }
+    .content-full .arrow.right {
+      right: 0;
+      background-color: blue; }
+  .content-full .content-body {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: calc(100% - 90px - 40px);
+    width: 100%; }
+    .content-full .content-body .project {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      border: solid green 2px;
+      margin: 20px 60px;
+      width: 0; }
+      .content-full .content-body .project.first {
+        background-color: rgba(0, 240, 240, 0.6);
+        width: 85%; }
+      .content-full .content-body .project.second {
+        background-color: rgba(240, 0, 240, 0.6);
+        opacity: 0; }
+      .content-full .content-body .project.third {
+        background-color: rgba(240, 240, 0, 0.6);
+        opacity: 0; }
+      .content-full .content-body .project.fourth {
+        background-color: rgba(240, 0, 0, 0.6);
+        opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */
