@@ -9,13 +9,59 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit; }
 
-/**
- * Mixin to put items on a circle
- * [1] - Allows children to be absolutely positioned
- * [2] - Allows the mixin to be used on a list
- * [3] - In case box-sizing: border-box has been enabled
- * [4] - Allows any type of direct children to be targeted
- */
+.progress-bar {
+  background-color: #f2f2f2;
+  border: 1px solid gainsboro;
+  box-shadow: inset 0 0 3px 0 rgba(115, 115, 115, 0.15);
+  border-radius: 3px;
+  height: 30px;
+  margin: 0 auto;
+  padding: 2px;
+  width: 100%;
+  top: 1000px; }
+  .progress-bar > span.meter {
+    -webkit-animation: progress 0.7s linear infinite;
+    -moz-animation: progress 0.7s linear infinite;
+    animation: progress 0.7s linear infinite;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #477DCA;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%);
+    background-size: 40px 40px;
+    background-repeat: repeat-x;
+    border: 1px solid #2c5999;
+    border-radius: 2px;
+    display: block;
+    height: 100%;
+    width: 60%; }
+
+@-webkit-keyframes progress {
+  0% {
+    background-position: 0px 0px; }
+  100% {
+    background-position: 40px 0px; } }
+@-moz-keyframes progress {
+  0% {
+    background-position: 0px 0px; }
+  100% {
+    background-position: 40px 0px; } }
+@-ms-keyframes progress {
+  0% {
+    background-position: 0px 0px; }
+  100% {
+    background-position: 40px 0px; } }
+@-o-keyframes progress {
+  0% {
+    background-position: 0px 0px; }
+  100% {
+    background-position: 40px 0px; } }
+@keyframes progress {
+  0% {
+    background-position: 0px 0px; }
+  100% {
+    background-position: 40px 0px; } }
 body {
   font-family: 'Source Sans Pro', sans-serif;
   top: 0;
@@ -26,9 +72,8 @@ body {
   margin: 0;
   padding: 1%;
   width: 100vw;
-  overflow: hidden;
   position: absolute;
-  background-image: url("images/bamboo.jpeg");
+  background-image: url("images/bamboo_ring.png");
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0; }
@@ -41,17 +86,17 @@ body {
   max-width: 600px;
   width: 34%;
   position: relative;
-  background-color: rgba(240, 240, 240, 0.4);
+  background-color: rgba(240, 240, 240, 0.8);
   z-index: 3;
   border: solid green 2px;
-  border-radius: 24px;
+  border-radius: 8px;
   float: left; }
 
 header {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   height: 90px;
-  border-radius: 22px 22px 0 0;
+  border-radius: 6px 6px 0 0;
   overflow: hidden; }
   header .face {
     top: 10px;
@@ -87,10 +132,12 @@ header {
       color: white;
       margin: 0; }
   header .skills {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 1000px;
     width: 100%;
-    height: 30%;
-    background-color: rgba(240, 240, 240, 0.6); }
+    height: 800px;
+    background-color: #f0f0f0; }
   header .icon-bar {
     left: 0;
     top: 0;
@@ -105,10 +152,10 @@ header {
   width: 65%;
   float: right;
   position: relative;
-  background-color: rgba(240, 240, 240, 0.4);
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 3;
   border: solid green 2px;
-  border-radius: 24px; }
+  border-radius: 8px; }
   .content-full header {
     position: relative; }
     .content-full header h1 {
@@ -117,34 +164,50 @@ header {
       width: 100%;
       text-align: center; }
   .content-full .arrow {
-    height: 100%;
-    width: 60px;
-    top: 0;
+    height: calc(100% - 40px);
+    width: 80px;
+    top: -4px;
     position: absolute;
-    border: solid green 5px;
-    z-index: 999; }
+    z-index: 999;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 1s ease;
+    box-shadow: 6px 2px #888888;
+    margin: 20px 5px; }
     .content-full .arrow.left {
       left: 0;
-      background-color: rgba(240, 0, 0, 0.4); }
+      background-image: url("images/arrow_left.png");
+      background-size: 70%; }
+      .content-full .arrow.left:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.5); }
     .content-full .arrow.right {
       right: 0;
-      background-color: rgba(0, 240, 0, 0.4); }
+      background-image: url("images/arrow_right.png"); }
+      .content-full .arrow.right:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px #ab3c3c; }
   .content-full .content-body {
     position: relative;
     top: 0;
     left: 0;
     height: calc(100% - 90px);
     width: 100%;
-    border: solid transparent 20px; }
+    border: solid transparent 10px; }
     .content-full .content-body .project {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 100%;
-      width: 0; }
+      width: 0;
+      box-shadow: 3px 3px 2px #888888;
+      border-radius: 8px; }
       .content-full .content-body .project.first {
-        background-color: rgba(0, 240, 240, 0.6);
+        background-color: rgba(0, 0, 0, 0.3);
         width: 100%; }
       .content-full .content-body .project.second {
         background-color: rgba(240, 0, 240, 0.6);
