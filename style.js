@@ -1,73 +1,59 @@
-// $('.project').click(function() {
-//
-//     $(this).animate({ opacity: 1, border: 0, opacity: 1,
-//  visibility: "hidden"}, 1000);
-//     // $(this).animate({ "height" : "50px"}, 1000);
-//     // $(this).animate({ "top" : "200px"}, 1000);
-//     // $(this).animate({ "left" : "0px"}, 1000);
-//     // $(this).animate({ "top" : "0px"}, 1000);
-//     // $(this).animate({ "width" : "300px", "height" : "300px"}, 1000);
-//
-// });
+var projectsArray = ['first', 'second', 'third', 'fourth'];
+var count = 0;
+var maxWidth = $('.project').width();
 
+function moveRight(current, next) {
+  console.log("Right " + current + " "+ next);
 
-////////////////////////////////////////////////////////////////////////////////
-//
-function projects(current, next) {
-  if ( $('.project.' + current).width() == 686 ){
+  if ( $('.project.' + current).width() == maxWidth ){
+    $('.project.' + next).css('left', 0);
     $( '.project.' + current ).animate({
-        opacity: 0, left: "85%", width: 0}, {
+        opacity: 0, left: "100%", width: 0}, {
           queue: false,
-          duration: 1500,
-          });
+          duration: 1500});
     $( '.project.' + next ).animate({
-        opacity: 1, left: 0, width: "85%"}, {
-          queue: false,
-          duration: 1500,});
-  }
+        opacity: 1, left: 0, width: "100%"}, {
+        queue: false,
+        duration: 1500,
+        complete: function() {
+          $( '.project.' + current ).css('left', 0)}
+        }
+      );
+  };
 };
 
-  // if ($('.project').width() > 0 ){
-  //   var pro = $('.project').filter();
-  //   alert(pro.text());
-  // }
+function moveLeft(current, next) {
+  console.log("Left " + current + " "+ next);
 
-////////////////////////////////////////////////////////////////////////////////
-// function myFunction() {
-//   // var width = document.getElementById('.project.first').width;
-//   var projectFirst = $('.project.first')
-//   $('.debugger').html((projectFirst.width()));
-//
-// }
+  if ( $('.project.' + current).width() == maxWidth ){
+    $('.project.' + next).css({'right': 0, 'left': "100%"});
+    $('.project.' + current).animate({
+      opacity: 0, right: "100%", width: 0}, {
+      queue: false,
+      duration: 1500});
+    $( '.project.' + next ).animate({
+      opacity: 1, left: 0 , width: "100%"}, {
+      queue: false,
+      duration: 1500,
+      complete: function() {
+        $( '.project.' + current ).css('right', 0)}});
+  };
+};
 
-var proja = ['first', 'second', 'third', 'fourth'];
-var count = 0;
 $( '.left' ).click(function() {
-  projects(proja[count], proja[count + 1]);
-  setTimeout(function(){
-    count += 1;
-}, 1600);
-
-  // projects('second', 'third');
-  // projects('third', 'fourth');
-  // projects('fourth', 'first');
+  count %= 4;
+  console.log(count);
+  if ($('.project.' + projectsArray[count]).width() == maxWidth ){
+    var next = (count + 3) % 4
+    moveLeft(projectsArray[count], projectsArray[next]);
+    count += 3;
+  };
 });
-////////////////////////////////////////////////////////////////////////////////
-// var window = function projectFinder(current, next) {
-//   if ( $('.project.' + current).width() == 686 ){
-//     $( '.project.' + current).animate({opacity: 0, left: "85%", width: 0}, {
-//         queue: false,
-//         duration: 1500,})
-//     $( '.project.' + next ).animate({
-//       opacity: 1, width: "85%"}, {
-//         queue: false,
-//         duration: 1500,})
-//
-//     $( '.project.' + current).animate({left: 0}, {
-//         queue: false,
-//         duration: 1,})
-//     }
-// }
-//
-// window('' + 'first', 'second')
-////////////////////////////////////////////////////////////////////////////////
+
+$( '.right' ).click(function() {
+  count %= 4;
+  if ( $('.project.' + projectsArray[count]).width() == maxWidth ){
+    moveRight(projectsArray[count], projectsArray[(count + 1) % 4]);
+    count += 1;
+  };
+});

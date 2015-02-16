@@ -134,38 +134,35 @@ $gdi-icon: "images/gdi-icon.png";
       text-align: center;}}
   .arrow{
     height: 100%;
-    width: 40px;
+    width: 60px;
     top: 0;
     position: absolute;
-    background-color:rgba(240,240,240,0.6);
-    border-radius: 20px;
-    border: solid green 2px;
-    margin: 10px;
+    border: solid green 5px;
+    z-index: 999;
     &.left {
       left: 0;
-      background-color: red;}
+      background-color:rgba(240,0,0,0.4);}
     &.right {
       right: 0;
-      background-color: blue;}}
+      background-color:rgba(0,240,  0,0.4);}}
 
   .content-body {
     position: relative;
     top: 0;
     left: 0;
-    height: calc(100% - 90px - 40px);
+    height: calc(100% - 90px);
     width: 100%;
+    border: solid transparent 20px;
     .project {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 100%;
-      border: solid green 2px;
-      margin: 20px 60px;
       width: 0;
       &.first {
         background-color:rgba(0,240,240,0.6);
-        width: 85%;}
+        width: 100%;}
       &.second {
         background-color:rgba(240,0,240,0.6);
         opacity: 0;}
