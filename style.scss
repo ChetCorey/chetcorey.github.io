@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "progress-bar";
+@import "modal";
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
 
 $primary-color: blue;
@@ -13,7 +14,8 @@ $perspective: 200;
 $width: 100vw;
 $max-width: 1200px;
 $min-width: 500px;
-$border-radius: 8px;
+$border-radius: 6px;
+$border-size: 2px;
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -26,10 +28,14 @@ body {
   padding: 1%;
   width: 100vw;
   position: absolute;
-  background-image: url($background-image);
+  // background-image: url($background-image);
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0;
+}
+
+p {
+  text-align: left;
 }
 
 // Header
@@ -45,7 +51,7 @@ $face: "images/chetcorey.png";
   position: relative;
   background-color:rgba(240,240,240,0.8);
   z-index: 3;
-  border: solid green 2px;
+  border: solid green $border-size;
   border-radius: $border-radius;
   float: left;
 }
@@ -53,8 +59,8 @@ $face: "images/chetcorey.png";
 header {
   width: 100%;
   background-color:rgba(0,0,0,0.8);
-  height: 90px;
-  border-radius: 6px 6px 0 0;
+  height: 70px;
+  border-radius: ($border-radius - $border-size) ($border-radius - $border-size) 0 0;
   overflow: hidden;
 
   .face {
@@ -75,14 +81,14 @@ header {
     color: #eee;
     background-color: transparent;
     position: absolute;
-    top: -10px;
+    top: -20px;
     left: 125px;
     font-size: 45px;}
 
   .status-bar {
     content: "";
     left: 0;
-    top: 90px;
+    top: 70px;
     width: 100%;
     height: 25px;
     position: absolute;
@@ -94,9 +100,8 @@ header {
       margin: 0;}}
 
   .skills {
-    position: absolute;
+    position: relative;
     top:0;
-    left: 1000px;
     width: 100%;
     height: 800px;
     background-color:rgba(240,240,240,1);
@@ -121,9 +126,8 @@ $gdi-icon: "images/gdi-icon.png";
   width: 65%;
   float: right;
   position: relative;
-  background-color:rgba(255,255,255,0.9);
   z-index: 3;
-  border: solid green 2px;
+  border: solid green $border-size;
   border-radius: $border-radius;
   header {
     position: relative;
@@ -133,64 +137,117 @@ $gdi-icon: "images/gdi-icon.png";
       width: 100%;
       text-align: center;}}
   .arrow{
-    height: calc(100% - 40px);
+    height: 100%;
     width: 80px;
-    top: -4px;
     position: absolute;
-    z-index: 999;
-    opacity: 0.8;
+    z-index: 199;
+    opacity: 0.1;
+    background-color:rgba(0,0,0,0);
     background-repeat: no-repeat;
     background-position: center;
-    background-color:rgba(0,0,0,0.2);
     transition: all 1s ease;
-    box-shadow: 6px 2px #888888;
-    margin: 20px 5px;
-
+    &:active{ background-color: green}
     &.left {
-      left: 0;
       background-image: url("images/arrow_left.png");
-      background-size: 70%;
-      &:hover{opacity: 1; background-color:rgba(0,0,0,0.5);}}
-    &.right {
-      right: 0;
-      background-image: url("images/arrow_right.png");
+      background-size: 50px;
+      border-radius: $border-radius 0 0 $border-radius;
       &:hover{
-        opacity: 1;
-        background-color:rgba(0,0,0,0.2);
-        box-shadow: 0 6px #ab3c3c;
+        background-position: left;
+        background-color:rgba(0,0,0,0.5);
+        opacity: .7;}}
+    &.right {
+      background-image: url("images/arrow_right.png");
+      background-size: 50px;
+      border-radius: 0 $border-radius $border-radius 0;
+      right: 0;
+      &:hover{
+        background-position: right;
+        background-color:rgba(0,0,0,0.7);
+        opacity: .7;}}
+  }
 
-}}
-    }
-
-  .content-body {
-    position: relative;
+  .project {
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
     top: 0;
     left: 0;
-    height: calc(100% - 90px);
+    right: 0;
+    text-align: center;
+    height: 100%;
+    box-shadow: 2px 2px #888888;
+    background-color:rgba(0,0,0,0);
+    border-radius: $border-radius - $border-size;
     width: 100%;
-    border: solid transparent 10px;
-    .project {
+    .first {
+      background-color:rgba(249,90,97,0.3);
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
       height: 100%;
+      width: 100%;}
+    .second {
+      background-image: url("images/freeshelf.png");
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      opacity: 0;}
+    .third {
+      background-color:rgba(240,240,0,0.6);
+      position: absolute;
+      top: 0;
+      height: 100%;
+      opacity: 0;}
+    .fourth {
+      background-color:rgba(240,0,0,0.6);
+      position: absolute;
+      top: 0;
+      height: 100%;
+      opacity: 0;}
+
+    .block-left {
+      width: 48%;
+      display: block;
+      height:calc(100% - 80px);
+      margin: 5px;
+      float: left;
+      background-image: url("images/gdi.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      top: 0;
+      left: 0;
+      border: 1px solid black;
+      padding: 20px;}
+
+    .block-right {
+      height:calc(100% - 80px);
+      width: 48%;
+      float: right;
+      margin: 5px;
+      padding: 5px;
+      background-size: 100%;
+      top: 0;
+      right: 0;
+      border: 1px solid black;
+      .block-small {
+        height: 47%;
+        width: 100%;
+        padding: 10px;
+        overflow: scroll;
+        background-color: white;
+        box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+        border-radius: $border-radius;
+
+
+    }}
+
+    h1 {
+      margin: 0;
+      height: 0;
       width: 0;
-      box-shadow: 3px 3px 2px #888888;
-      border-radius: $border-radius;
-      &.first {
-        background-color:rgba(0,0,0,0.3);
-        width: 100%;}
-      &.second {
-        background-color:rgba(240,0,240,0.6);
-        opacity: 0;}
-      &.third {
-        background-color:rgba(240,240,0,0.6);
-        opacity: 0;}
-      &.fourth {
-        background-color:rgba(240,0,0,0.6);
-        opacity: 0;}
-}
-}
+      opacity: 0;
+      z-index:0;}
+  }
 }
 // END Full Content Block
