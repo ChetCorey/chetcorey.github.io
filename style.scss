@@ -16,6 +16,7 @@ $max-width: 1200px;
 $min-width: 500px;
 $border-radius: 6px;
 $border-size: 2px;
+$header-height: 100px;
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -32,6 +33,17 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0;
+}
+
+h1 {
+  margin: 0;
+  height: auto;
+  width: 100%;
+  text-align: center;
+  z-index: 99;
+  font-size: 300%;
+  color: white;
+
 }
 
 p {
@@ -54,12 +66,21 @@ $face: "images/chetcorey.png";
   border: solid green $border-size;
   border-radius: $border-radius;
   float: left;
+  .skills {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 200px;
+    background-color:rgba(240,240,240,1);
+  }
 }
 // END Prime
+
+// Header
 header {
   width: 100%;
   background-color:rgba(0,0,0,0.8);
-  height: 70px;
+  height: $header-height;
   border-radius: ($border-radius - $border-size) ($border-radius - $border-size) 0 0;
   overflow: hidden;
 
@@ -73,39 +94,22 @@ header {
     z-index: 10;
     width: 100px;
     height: 100px;
-    margin: 0 auto;
+    margin: 0;
     border-radius: 50%;
     border: solid green 5px;}
 
-  h1 {
-    color: #eee;
-    background-color: transparent;
-    position: absolute;
-    top: -20px;
-    left: 125px;
-    font-size: 45px;}
-
   .status-bar {
-    content: "";
     left: 0;
     top: 70px;
     width: 100%;
     height: 25px;
     position: absolute;
-    background-color:rgba(0,64,0,0.8);
+    background-color:rgb(0,64,0);
     h4 {
       font: 120%;
       padding: 0 130px;
       color: white;
       margin: 0;}}
-
-  .skills {
-    position: relative;
-    top:0;
-    width: 100%;
-    height: 800px;
-    background-color:rgba(240,240,240,1);
-  }
 
   .icon-bar {
     left: 0;
@@ -113,10 +117,8 @@ header {
     position: absolute;
     height: 100%;
     width: auto;}
-
 }
 // END header
-
 $gdi-icon: "images/gdi-icon.png";
 // Full Content Block
 .content-full {
@@ -124,29 +126,20 @@ $gdi-icon: "images/gdi-icon.png";
   right: 0;
   height: 100%;
   width: 65%;
+  overflow: hidden;
   float: right;
   position: relative;
-  z-index: 3;
-  border: solid green $border-size;
-  border-radius: $border-radius;
-  header {
-    position: relative;
-    h1{
-      position: relative;
-      left: 0;
-      width: 100%;
-      text-align: center;}}
+  background-color:rgba(0,0,0,0);
   .arrow{
     height: 100%;
     width: 80px;
     position: absolute;
     z-index: 199;
     opacity: 0.1;
-    background-color:rgba(0,0,0,0);
+    background: transparent;
     background-repeat: no-repeat;
     background-position: center;
     transition: all 1s ease;
-    &:active{ background-color: green}
     &.left {
       background-image: url("images/arrow_left.png");
       background-size: 50px;
@@ -165,6 +158,7 @@ $gdi-icon: "images/gdi-icon.png";
         background-color:rgba(0,0,0,0.7);
         opacity: .7;}}
   }
+  .project-slider {}
 
   .project {
     position: absolute;
@@ -173,43 +167,31 @@ $gdi-icon: "images/gdi-icon.png";
     top: 0;
     left: 0;
     right: 0;
-    text-align: center;
-    height: 100%;
-    box-shadow: 2px 2px #888888;
-    background-color:rgba(0,0,0,0);
-    border-radius: $border-radius - $border-size;
-    width: 100%;
-    .first {
-      background-color:rgba(249,90,97,0.3);
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: 100%;}
-    .second {
+    height: 99%;
+    box-shadow: 4px 4px 4px #888888;
+    border-radius: $border-radius - 1px;
+    border: black 1px solid;
+    width: 99%;
+    &.first {
+      background-color:rgba(249,90,97,0.3);}
+    &.second {
       background-image: url("images/freeshelf.png");
       background-size: auto 100%;
       background-repeat: no-repeat;
-      position: absolute;
-      top: 0;
-      height: 100%;
-      opacity: 0;}
-    .third {
-      background-color:rgba(240,240,0,0.6);
-      position: absolute;
-      top: 0;
-      height: 100%;
-      opacity: 0;}
-    .fourth {
+      left: -120%;}
+    &.third {
+      background-image: url("images/rubyarcade.png");
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      left: -120%;}
+    &.fourth {
       background-color:rgba(240,0,0,0.6);
-      position: absolute;
-      top: 0;
-      height: 100%;
-      opacity: 0;}
+      left: -120%;}
 
     .block-left {
       width: 48%;
       display: block;
-      height:calc(100% - 80px);
+      height: calc(100% - 110px);
       margin: 5px;
       float: left;
       background-image: url("images/gdi.png");
@@ -219,9 +201,8 @@ $gdi-icon: "images/gdi-icon.png";
       left: 0;
       border: 1px solid black;
       padding: 20px;}
-
     .block-right {
-      height:calc(100% - 80px);
+      height: calc(100% - 110px);
       width: 48%;
       float: right;
       margin: 5px;
@@ -237,17 +218,31 @@ $gdi-icon: "images/gdi-icon.png";
         overflow: scroll;
         background-color: white;
         box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
-        border-radius: $border-radius;
-
-
-    }}
-
-    h1 {
-      margin: 0;
-      height: 0;
-      width: 0;
-      opacity: 0;
-      z-index:0;}
+        border-radius: $border-radius;}
+    }
   }
 }
 // END Full Content Block
+// Nav
+.nav-bar {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  background: white;
+  .icon {
+  height: 26px;
+  width: 26px;
+  margin: 2px 30px;
+  border-radius: 50%;
+  border: black 2px solid;
+  background-repeat: no-repeat;
+  background-size: cover;
+    &.github {
+    background-image: url("images/github.png");}
+    &.gdi {
+    background-image: url("images/gdi-icon.png");}
+    &.website {
+    background-image: url("images/website.png");}
+}
+}
