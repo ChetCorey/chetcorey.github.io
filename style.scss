@@ -61,31 +61,50 @@ $face: "images/chetcorey.png";
   z-index: 3;
   border: solid black $border-size;
   border-radius: 0;
+  overflow: hidden;
   float: left;
   .face {
-    top: 30%;
     left: 0;
     right: 0;
+    top: 40%;
     position: absolute;
     background-image: url($face);
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
     z-index: 10;
     width: 200px;
     height: 200px;
-    box-shadow: 25px 25px 100px 0 rgba(0,0,0,1);
-    margin: 0 calc(50% - 100px);
+    // box-shadow: 25px 25px 100px 0 rgba(0,0,0,1);
     border-radius: 50%;
+    display: block;
     border: solid black 5px;}
-  .info {
-    position: absolute;
-    bottom: 100px;
-    background: white;
-    height: 100px;
-    width: 200px;
-    left: 0;
-    right: 0;
-    margin: 0 calc(50% - 100px);
+    .info {
+      top: 100px;
+      position: absolute;
+      height: auto;
+      width: 310px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: block;
+    .icon-large {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: black 4px solid;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: white;
+      position: relative;
+      margin: 0 25px;
+      display: inline-block;
+      &.github {
+      background-image: url("images/github.png");}
+      &.email {
+      background-image: url("images/email.png");}
+      &.linkedin {
+      background-image: url("images/linkedin.png");}}
   }
 
 // Header
@@ -93,7 +112,7 @@ $face: "images/chetcorey.png";
     width: 100%;
     top: -10px;
     height: 100px;
-    position: fixed;
+    position: relative;
     h1{
       position: relative;
       z-index: 100;
@@ -245,12 +264,13 @@ $face: "images/chetcorey.png";
       right: 0;
       border: 1px solid black;
       .block-small {
-        height: 47%;
+        height: 49%;
         width: 100%;
         padding: 0 10px;
         overflow: scroll;
         background-color: white;
         box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+        margin: 0 0 2% 0;
         border-radius: $border-radius;}
     }
   }
@@ -274,7 +294,6 @@ $face: "images/chetcorey.png";
   position: relative;}
 }
 // END Nav
-
 .icon {
 display: inline-block;
 position: relative;

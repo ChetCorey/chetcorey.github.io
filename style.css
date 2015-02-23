@@ -96,36 +96,54 @@ body {
   z-index: 3;
   border: solid black 1px;
   border-radius: 0;
+  overflow: hidden;
   float: left; }
   .prime .face {
-    top: 30%;
     left: 0;
     right: 0;
+    top: 40%;
     position: absolute;
     background-image: url("images/chetcorey.png");
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
     z-index: 10;
     width: 200px;
     height: 200px;
-    box-shadow: 25px 25px 100px 0 black;
-    margin: 0 calc(50% - 100px);
     border-radius: 50%;
+    display: block;
     border: solid black 5px; }
   .prime .info {
+    top: 100px;
     position: absolute;
-    bottom: 100px;
-    background: white;
-    height: 100px;
-    width: 200px;
+    height: auto;
+    width: 310px;
     left: 0;
     right: 0;
-    margin: 0 calc(50% - 100px); }
+    margin: auto;
+    display: block; }
+    .prime .info .icon-large {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: black 4px solid;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: white;
+      position: relative;
+      margin: 0 25px;
+      display: inline-block; }
+      .prime .info .icon-large.github {
+        background-image: url("images/github.png"); }
+      .prime .info .icon-large.email {
+        background-image: url("images/email.png"); }
+      .prime .info .icon-large.linkedin {
+        background-image: url("images/linkedin.png"); }
   .prime header {
     width: 100%;
     top: -10px;
     height: 100px;
-    position: fixed; }
+    position: relative; }
     .prime header h1 {
       position: relative;
       z-index: 100;
@@ -262,12 +280,13 @@ body {
       right: 0;
       border: 1px solid black; }
       .content-full .project .block-right .block-small {
-        height: 47%;
+        height: 49%;
         width: 100%;
         padding: 0 10px;
         overflow: scroll;
         background-color: white;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+        margin: 0 0 2% 0;
         border-radius: 5px; }
 
 .nav-bar {

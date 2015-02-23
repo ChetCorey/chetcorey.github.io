@@ -46,7 +46,7 @@ console.log($(window).scrollTop());
 $( document ).ready(function() {
   $( window ).scroll(function(){
       $('.prime').animate({
-        height:'110px',
+        height:'100px',
         }, 2000, "easeInOutQuad");
       $('.face').animate({
         width: '90px',
@@ -54,10 +54,20 @@ $( document ).ready(function() {
         margin: '5px',
         left: 0,
         top: 0,
-        boxShadow: '4px 4px 4px 0 rgba(0,0,0,.5)',
         }, 2000, "easeInOutQuad");
-        $('.project-block').animate({
-          top: 0,
-          }, 2000, "easeInOutQuad");
+      $('.project-block').animate({
+        top: 0,
+        }, 2000, "easeInOutQuad");
+      $('.info').animate({
+        top: 0,
+        left: '100px',
+        width: '30px',
+        margin: 0,
+        }, 2000, "easeInOutQuad");
+      $('.icon-large').animate({
+        width: '30px',
+        height: '30px',
+        margin: 0,
+        }, 2000, "easeInOutQuad");
    });
 });
