@@ -1,7 +1,6 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 @import "progress-bar";
-@import "modal";
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200);
 
 $primary-color: blue;
@@ -18,6 +17,13 @@ $border-radius: 5px;
 $border-size: 1px;
 $header-height: 100px;
 $dark: rgb(40,40,40);
+$gdi-icon: "images/gdi-icon.png";
+
+
+a {
+  margin: 0;
+}
+
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -32,7 +38,7 @@ body {
   padding: 0;
   width: 100vw;
   position: absolute;
-  // background-image: url($background-image);
+  background-image: url($background-image);
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0;
@@ -71,6 +77,16 @@ $face: "images/chetcorey.png";
     margin: 0 calc(50% - 100px);
     border-radius: 50%;
     border: solid black 5px;}
+  .info {
+    position: absolute;
+    bottom: 100px;
+    background: white;
+    height: 100px;
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: 0 calc(50% - 100px);
+  }
 
 // Header
   header {
@@ -119,7 +135,8 @@ $face: "images/chetcorey.png";
 // END header
 }
 // END Prime
-$gdi-icon: "images/gdi-icon.png";
+
+
 // Full Content Block
 .content-full {
   top: 110px;
@@ -173,6 +190,7 @@ $gdi-icon: "images/gdi-icon.png";
     border: black 1px solid;
     width: 100%;
     margin: 10px 0;
+    background: white;
 }
   .project {
     position: absolute;
@@ -206,7 +224,7 @@ $gdi-icon: "images/gdi-icon.png";
     .block-left {
       width: 48%;
       display: block;
-      height: calc(100% - 110px);
+      height: calc(100% - 50px);
       margin: 5px;
       float: left;
       background-image: url("images/gdi.png");
@@ -217,7 +235,7 @@ $gdi-icon: "images/gdi-icon.png";
       border: 1px solid black;
       padding: 20px;}
     .block-right {
-      height: calc(100% - 110px);
+      height: calc(100% - 50px);
       width: 48%;
       float: right;
       margin: 5px;
@@ -242,43 +260,55 @@ $gdi-icon: "images/gdi-icon.png";
 // Nav
 .nav-bar {
   width: 100%;
-  height: 30px;
+  height: 40px;
   background: white;
-  h2 {
-  width: 20%;
-  margin: 0;
-  position: relative;
-}
-  .icon {
-  position: relative;
-  height: 26px;
+  overflow:auto;
+  text-align: center;
 
-  width: 26px;
-  margin: 2px 30px;
-  border-radius: 50%;
-  border: black 2px solid;
-  background-repeat: no-repeat;
-  background-size: cover;
-    &.github {
-    background-image: url("images/github.png");}
-    &.gdi {
-    background-image: url("images/gdi-icon.png");}
-    &.website {
-    background-image: url("images/website.png");}}
+  h2 {
+  width: auto;
+  height: 40px;
+  margin: 0 20px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;}
 }
 // END Nav
 
-// About
-.about {
-  top: 101%;
-  left: 0;
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  box-shadow: 4px 4px 4px #888888;
-  border-radius: $border-radius - 1px;
-  border: black 1px solid;
-}
+.icon {
+display: inline-block;
+position: relative;
+height: 30px;
+width: 30px;
+margin: 5px 30px;
+border-radius: 50%;
+border: black 2px solid;
+background-repeat: no-repeat;
+background-size: cover;
+  &.github {
+  background-image: url("images/github.png");}
+  &.gdi {
+  background-image: url("images/gdi-icon.png");}
+  &.website {
+  background-image: url("images/website.png");}
+  &.email {
+  background-image: url("images/email.png");}
+  &.linkedin {
+  background-image: url("images/linkedin.png");}}
+
+// .about-block {
+//   position: relative;
+//   overflow: hidden;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   height: calc(100% - 20px);
+//   box-shadow: 4px 4px 4px #888888;
+//   border-radius: $border-radius - 1px;
+//   border: black 1px solid;
+//   width: 100%;
+//   margin: 10px 0;
+// }
 
 .glass {
   content: ' ';
@@ -287,5 +317,5 @@ $gdi-icon: "images/gdi-icon.png";
   left: 0;
   right: 0;
   position: absolute;
-  background-color: rgba(20,20,20,.4);
+  background-color: rgba(20,20,20,.8);
 }
