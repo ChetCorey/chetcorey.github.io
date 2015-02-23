@@ -112,7 +112,7 @@ body {
     height: 200px;
     border-radius: 50%;
     display: block;
-    border: solid black 5px; }
+    border: solid white 5px; }
   .prime .info {
     top: 100px;
     position: absolute;
@@ -125,8 +125,7 @@ body {
     .prime .info .icon-large {
       height: 50px;
       width: 50px;
-      border-radius: 50%;
-      border: black 4px solid;
+      border-radius: 55%;
       background-repeat: no-repeat;
       background-size: cover;
       background-color: white;
