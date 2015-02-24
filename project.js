@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
-var projects = ['first', 'second', 'third', 'fourth'];
+var projects = ['first', 'second', 'third'];
+var project_number = projects.length
 var count = 0;
 var maxWidth = $('.project').width();
 ////////////////////////////////////////////////////////////////////////////////
@@ -14,11 +15,11 @@ function moveRight(current, next) {
 };
 
 $( '.left' ).click(function() {
-  count %= 4;
+  count %= project_number;
   if ($('.project.' + projects[count]).position().left == 0 ){
-    var next = (count + 3) % 4
+    var next = (count + (project_number - 1)) % project_number
     moveLeft(projects[count], projects[next]);
-    count += 3;
+    count += (project_number - 1);
   };
 });
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,16 +34,14 @@ function moveLeft(current, next) {
 };
 
 $( '.right' ).click(function() {
-  count %= 4;
+  count %= project_number;
   if ($('.project.' + projects[count]).position().left == 0 ){
-    moveRight(projects[count], projects[(count + 1) % 4]);
+    moveRight(projects[count], projects[(count + 1) % project_number]);
     count += 1;
   };
 });
 ////////////////////////////////////////////////////////////////////////////////
 
-
-console.log($(window).scrollTop());
 $( document ).ready(function() {
   $( window ).scroll(function(){
       $('.prime').animate({
@@ -59,14 +58,14 @@ $( document ).ready(function() {
         top: 0,
         }, 2000, "easeInOutQuad");
       $('.info').animate({
-        top: 0,
+        top: '10px',
         left: '100px',
-        width: '30px',
+        width: '100px',
         margin: 0,
         }, 2000, "easeInOutQuad");
       $('.icon-large').animate({
-        width: '30px',
-        height: '30px',
+        width: '40px',
+        height: '40px',
         margin: 0,
         }, 2000, "easeInOutQuad");
    });

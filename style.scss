@@ -5,11 +5,11 @@
 
 $primary-color: blue;
 $secondary-color: gray;
-$background-image: "images/sand.jpg";
+$background-image: "images/bamboo_ring.png";
 $bourbon-nav-background-color: #ccc;
 $nav-height: 50px;
 $shadow-height: 3px;
-$shadow: rgba(0,0,0,0.7);
+$shadow: rgba(0,0,0,0.6);
 $perspective: 200;
 $width: 100vw;
 $max-width: 1200px;
@@ -19,12 +19,20 @@ $border-size: 1px;
 $header-height: 100px;
 $dark: rgb(40,40,40);
 $gdi-icon: "images/gdi-icon.png";
+$glass: rgba(255,255,255,.5);
 
 
 a {
   margin: 0;
 }
 
+p {
+  line-height: 150%;
+  text-align: left;
+}
+// html {
+//   width-min{}
+// }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -84,7 +92,7 @@ $face: "images/chetcorey.png";
       top: 100px;
       position: absolute;
       height: auto;
-      width: 310px;
+      width: 410px;
       left: 0;
       right: 0;
       margin: auto;
@@ -92,19 +100,22 @@ $face: "images/chetcorey.png";
     .icon-large {
       height: 50px;
       width: 50px;
-      border-radius: 55%;
+      border-radius: 50%;
       background-repeat: no-repeat;
       background-size: cover;
       background-color: white;
+      border: white 4px;
       position: relative;
       margin: 0 25px;
       display: inline-block;
       &.github {
-      background-image: url("images/github.png");}
+        background-image: url("images/github.png");}
       &.email {
-      background-image: url("images/email.png");}
+        background-image: url("images/email.png");}
       &.linkedin {
-      background-image: url("images/linkedin.png");}}
+        background-image: url("images/linkedin.png");}
+      &.resume {
+        background-image: url("images/resume.png");}}
   }
 
 // Header
@@ -209,7 +220,7 @@ $face: "images/chetcorey.png";
     border: black 1px solid;
     width: 100%;
     margin: 10px 0;
-    background: white;
+    background: $glass;
 }
   .project {
     position: absolute;
@@ -222,31 +233,24 @@ $face: "images/chetcorey.png";
     border-radius: $border-radius - 1px;
     border: black 1px solid;
     width: calc(100% - 40px);
+    background: #999999;
     margin: 20px;
     &.first {
-      left: 0;
-      background-color:rgba(249,90,97,0.3);}
+      left: 0;}
     &.second {
-      background-image: url("images/freeshelf.png");
-      background-size: auto 100%;
-      left: -100%;
-      background-repeat: no-repeat;}
+      left: -100%;}
     &.third {
-      background-image: url("images/rubyarcade.png");
-      background-size: 100% auto;
-      left: -100%;
-      background-repeat: no-repeat;}
+      left: -100%;}
     &.fourth {
       left: -100%;
       background-color:rgba(240,0,0,0.6);}
 
     .block-left {
-      width: 48%;
+      width: 66%;
       display: block;
       height: calc(100% - 50px);
       margin: 5px;
       float: left;
-      background-image: url("images/gdi.png");
       background-repeat: no-repeat;
       background-size: 100%;
       top: 0;
@@ -255,7 +259,7 @@ $face: "images/chetcorey.png";
       padding: 20px;}
     .block-right {
       height: calc(100% - 50px);
-      width: 48%;
+      width: 30%;
       float: right;
       margin: 5px;
       padding: 5px;
@@ -264,7 +268,7 @@ $face: "images/chetcorey.png";
       right: 0;
       border: 1px solid black;
       .block-small {
-        height: 49%;
+        height: 100%;
         width: 100%;
         padding: 0 10px;
         overflow: scroll;
@@ -336,5 +340,6 @@ background-size: cover;
   left: 0;
   right: 0;
   position: absolute;
-  background: rgba(255,255,255,.2); /* the standard */
+  background: $glass;
+  filter: blur(5px);
 }

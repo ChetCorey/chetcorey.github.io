@@ -65,6 +65,10 @@ html {
 a {
   margin: 0; }
 
+p {
+  line-height: 150%;
+  text-align: left; }
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   top: 0;
@@ -78,7 +82,7 @@ body {
   padding: 0;
   width: 100vw;
   position: absolute;
-  background-image: url("images/sand.jpg");
+  background-image: url("images/bamboo_ring.png");
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0; }
@@ -87,7 +91,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
   position: fixed;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -117,7 +121,7 @@ body {
     top: 100px;
     position: absolute;
     height: auto;
-    width: 310px;
+    width: 410px;
     left: 0;
     right: 0;
     margin: auto;
@@ -125,10 +129,11 @@ body {
     .prime .info .icon-large {
       height: 50px;
       width: 50px;
-      border-radius: 55%;
+      border-radius: 50%;
       background-repeat: no-repeat;
       background-size: cover;
       background-color: white;
+      border: white 4px;
       position: relative;
       margin: 0 25px;
       display: inline-block; }
@@ -138,6 +143,8 @@ body {
         background-image: url("images/email.png"); }
       .prime .info .icon-large.linkedin {
         background-image: url("images/linkedin.png"); }
+      .prime .info .icon-large.resume {
+        background-image: url("images/resume.png"); }
   .prime header {
     width: 100%;
     top: -10px;
@@ -221,12 +228,12 @@ body {
     left: 0;
     right: 0;
     height: calc(100% - 20px);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     border-radius: 4px;
     border: black 1px solid;
     width: 100%;
     margin: 10px 0;
-    background: white; }
+    background: rgba(255, 255, 255, 0.5); }
   .content-full .project {
     position: absolute;
     text-align: center;
@@ -234,34 +241,27 @@ body {
     top: 0;
     right: 0;
     height: calc(100% - 40px);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     border-radius: 4px;
     border: black 1px solid;
     width: calc(100% - 40px);
+    background: #999999;
     margin: 20px; }
     .content-full .project.first {
-      left: 0;
-      background-color: rgba(249, 90, 97, 0.3); }
+      left: 0; }
     .content-full .project.second {
-      background-image: url("images/freeshelf.png");
-      background-size: auto 100%;
-      left: -100%;
-      background-repeat: no-repeat; }
+      left: -100%; }
     .content-full .project.third {
-      background-image: url("images/rubyarcade.png");
-      background-size: 100% auto;
-      left: -100%;
-      background-repeat: no-repeat; }
+      left: -100%; }
     .content-full .project.fourth {
       left: -100%;
       background-color: rgba(240, 0, 0, 0.6); }
     .content-full .project .block-left {
-      width: 48%;
+      width: 66%;
       display: block;
       height: calc(100% - 50px);
       margin: 5px;
       float: left;
-      background-image: url("images/gdi.png");
       background-repeat: no-repeat;
       background-size: 100%;
       top: 0;
@@ -270,7 +270,7 @@ body {
       padding: 20px; }
     .content-full .project .block-right {
       height: calc(100% - 50px);
-      width: 48%;
+      width: 30%;
       float: right;
       margin: 5px;
       padding: 5px;
@@ -279,7 +279,7 @@ body {
       right: 0;
       border: 1px solid black; }
       .content-full .project .block-right .block-small {
-        height: 49%;
+        height: 100%;
         width: 100%;
         padding: 0 10px;
         overflow: scroll;
@@ -330,7 +330,7 @@ body {
   left: 0;
   right: 0;
   position: absolute;
-  background: rgba(255, 255, 255, 0.2);
-  /* the standard */ }
+  background: rgba(255, 255, 255, 0.5);
+  filter: blur(5px); }
 
 /*# sourceMappingURL=style.css.map */
