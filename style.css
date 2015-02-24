@@ -78,7 +78,7 @@ body {
   padding: 0;
   width: 100vw;
   position: absolute;
-  background-image: url("images/bamboo_ring.png");
+  background-image: url("images/sand.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: 0; }
@@ -87,7 +87,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  box-shadow: 4px 4px 4px #888888;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
   position: fixed;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -221,7 +221,7 @@ body {
     left: 0;
     right: 0;
     height: calc(100% - 20px);
-    box-shadow: 4px 4px 4px #888888;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     border-radius: 4px;
     border: black 1px solid;
     width: 100%;
@@ -234,7 +234,7 @@ body {
     top: 0;
     right: 0;
     height: calc(100% - 40px);
-    box-shadow: 4px 4px 4px #888888;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     border-radius: 4px;
     border: black 1px solid;
     width: calc(100% - 40px);
@@ -330,6 +330,7 @@ body {
   left: 0;
   right: 0;
   position: absolute;
-  background-color: rgba(20, 20, 20, 0.8); }
+  background: rgba(255, 255, 255, 0.2);
+  /* the standard */ }
 
 /*# sourceMappingURL=style.css.map */
